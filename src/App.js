@@ -1,10 +1,16 @@
 import React from "react";
-import { Admin, Resource, ListGuesser, ShowGuesser } from "react-admin";
+import { Admin, Resource } from "react-admin";
+import { CourseCreate, CourseEdit, CourseList } from "./components/Course";
 import dataProvider from "./providers/dataProvider";
 
 const App = () => (
   <Admin dataProvider={dataProvider}>
-    <Resource name="courses" list={ListGuesser} show={ShowGuesser} />
+    <Resource
+      name="courses"
+      list={CourseList}
+      create={CourseCreate}
+      edit={CourseEdit}
+    />
   </Admin>
 );
 export default App;
