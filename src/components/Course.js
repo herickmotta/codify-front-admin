@@ -11,11 +11,13 @@ import {
   TextInput,
   Edit,
   ImageField,
+  Show,
+  SimpleShowLayout,
 } from "react-admin";
 
 export const CourseList = (props) => (
   <List {...props}>
-    <Datagrid rowClick="edit">
+    <Datagrid rowClick="show">
       <TextField source="id" />
       <TextField source="name" />
       <TextField multiline source="description" />
@@ -45,4 +47,15 @@ export const CourseEdit = (props) => (
       <TextInput source="photo" />
     </SimpleForm>
   </Edit>
+);
+
+export const CourseShow = (props) => (
+  <Show {...props}>
+    <SimpleShowLayout>
+      <TextField source="id" />
+      <TextField source="name" />
+      <TextField multiline source="description" />
+      <ImageField source="photo" />
+    </SimpleShowLayout>
+  </Show>
 );

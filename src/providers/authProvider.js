@@ -1,9 +1,10 @@
 import axios from "axios";
+import API_URL from "../config/constants";
 
 export default {
   login: ({ username, password }) =>
     axios
-      .post("http://localhost:3000/admin/users/sign-in", { username, password })
+      .post(`${API_URL}/sign-in`, { username, password })
       .then((r) => {
         localStorage.setItem("adminToken", r.data.token);
       })
@@ -13,7 +14,7 @@ export default {
 
   logout: () =>
     axios
-      .post("http://localhost:3000/admin/users/sign-out")
+      .post(`${API_URL}/sign-out`)
       .then(() => localStorage.removeItem("adminToken")),
 
   checkError: ({ status }) => {
