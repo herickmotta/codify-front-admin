@@ -8,17 +8,19 @@ import {
   Edit,
   Show,
   SimpleShowLayout,
-  SingleFieldList,
-  ChipField,
   ReferenceManyField,
+  ReferenceInput,
+  SelectInput,
+  Datagrid,
 } from "react-admin";
 
 export const ChapterCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <TextInput source="name" />
-      <TextInput multiline source="description" />
-      <TextInput source="photo" />
+      <ReferenceInput source="courseId" reference="courses">
+        <SelectInput optionText="name" />
+      </ReferenceInput>
     </SimpleForm>
   </Create>
 );
@@ -40,9 +42,10 @@ export const ChapterShow = (props) => (
       <TextField source="id" />
       <TextField source="name" />
       <ReferenceManyField label="Topics" reference="topics" target="chapterId">
-        <SingleFieldList linkType="show">
-          <ChipField source="name" />
-        </SingleFieldList>
+        <Datagrid rowClick="show">
+          <TextField source="id" />
+          <TextField source="name" />
+        </Datagrid>
       </ReferenceManyField>
     </SimpleShowLayout>
   </Show>

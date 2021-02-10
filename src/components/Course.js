@@ -13,10 +13,8 @@ import {
   ImageField,
   Show,
   SimpleShowLayout,
-  SingleFieldList,
-  ChipField,
   ReferenceManyField,
-  ShowButton,
+  CreateButton,
 } from "react-admin";
 
 export const CourseList = (props) => (
@@ -66,9 +64,11 @@ export const CourseShow = (props) => (
         reference="chapters"
         target="courseId"
       >
-        <SingleFieldList linkType="show">
-          <ChipField source="name" />
-        </SingleFieldList>
+        <Datagrid rowClick="show">
+          <TextField source="id" />
+          <TextField source="name" />
+          <CreateButton />
+        </Datagrid>
       </ReferenceManyField>
     </SimpleShowLayout>
   </Show>

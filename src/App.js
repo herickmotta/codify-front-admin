@@ -1,6 +1,6 @@
 import React from "react";
 import { Admin, Resource } from "react-admin";
-import { ChapterShow } from "./components/Chapter";
+import { ChapterCreate, ChapterShow } from "./components/Chapter";
 import {
   CourseCreate,
   CourseEdit,
@@ -19,7 +19,7 @@ const App = () => (
       edit={CourseEdit}
       show={CourseShow}
     />
-    <Resource name="chapters" show={ChapterShow} />
+    <Resource name="chapters" show={ChapterShow} create={ChapterCreate} />
     <Resource name="topics" show={TopicShow} />
     <Resource name="exercises" />
     <Resource name="theories" />

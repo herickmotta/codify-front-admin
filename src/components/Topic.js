@@ -57,7 +57,7 @@ export const TopicShow = (props) => (
       >
         <Datagrid>
           <TextField source="id" />
-          <TextField source="name" />
+          <TextField source="youtubeLink" />
         </Datagrid>
       </ReferenceManyField>
     </SimpleShowLayout>
