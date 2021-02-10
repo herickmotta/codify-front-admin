@@ -8,21 +8,24 @@ import {
   CourseShow,
 } from "./components/Course";
 import { TopicShow } from "./components/Topic";
+import authProvider from "./providers/authProvider";
 import dataProvider from "./providers/dataProvider";
 
-const App = () => (
-  <Admin dataProvider={dataProvider}>
-    <Resource
-      name="courses"
-      list={CourseList}
-      create={CourseCreate}
-      edit={CourseEdit}
-      show={CourseShow}
-    />
-    <Resource name="chapters" show={ChapterShow} create={ChapterCreate} />
-    <Resource name="topics" show={TopicShow} />
-    <Resource name="exercises" />
-    <Resource name="theories" />
-  </Admin>
-);
+function App() {
+  return (
+    <Admin authProvider={authProvider} dataProvider={dataProvider}>
+      <Resource
+        name="courses"
+        list={CourseList}
+        create={CourseCreate}
+        edit={CourseEdit}
+        show={CourseShow}
+      />
+      <Resource name="chapters" show={ChapterShow} create={ChapterCreate} />
+      <Resource name="topics" show={TopicShow} />
+      <Resource name="exercises" />
+      <Resource name="theories" />
+    </Admin>
+  );
+}
 export default App;
