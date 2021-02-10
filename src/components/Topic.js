@@ -1,38 +1,20 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import {
-  List,
   Create,
-  Datagrid,
   TextField,
-  EditButton,
-  DeleteButton,
   SimpleForm,
   TextInput,
   Edit,
-  ImageField,
   Show,
   SimpleShowLayout,
   SingleFieldList,
   ChipField,
   ReferenceManyField,
-  ShowButton,
+  Datagrid,
 } from "react-admin";
 
-export const CourseList = (props) => (
-  <List {...props}>
-    <Datagrid rowClick="show">
-      <TextField source="id" />
-      <TextField source="name" />
-      <TextField multiline source="description" />
-      <ImageField source="photo" />
-      <EditButton />
-      <DeleteButton />
-    </Datagrid>
-  </List>
-);
-
-export const CourseCreate = (props) => (
+export const ChapterCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <TextInput source="name" />
@@ -42,7 +24,7 @@ export const CourseCreate = (props) => (
   </Create>
 );
 
-export const CourseEdit = (props) => (
+export const ChapterEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
       <TextInput disabled source="id" />
@@ -53,22 +35,30 @@ export const CourseEdit = (props) => (
   </Edit>
 );
 
-export const CourseShow = (props) => (
+export const TopicShow = (props) => (
   <Show {...props}>
     <SimpleShowLayout>
       <TextField source="id" />
       <TextField source="name" />
-      <TextField multiline source="description" />
-      <ImageField source="photo" />
+      <ReferenceManyField
+        label="Exercises"
+        reference="exercises"
+        target="topicId"
+      >
+        <SingleFieldList>
+          <ChipField source="id" />
+        </SingleFieldList>
+      </ReferenceManyField>
 
       <ReferenceManyField
-        label="chapters"
-        reference="chapters"
-        target="courseId"
+        label="Theories"
+        reference="theories"
+        target="topicId"
       >
-        <SingleFieldList linkType="show">
-          <ChipField source="name" />
-        </SingleFieldList>
+        <Datagrid>
+          <TextField source="id" />
+          <TextField source="name" />
+        </Datagrid>
       </ReferenceManyField>
     </SimpleShowLayout>
   </Show>

@@ -11,7 +11,7 @@ const httpClient = (url, options = {}) => {
   options.headers.set("Authorization", `Bearer ${token}`);
   return fetchUtils.fetchJson(url, options);
 };
-console.log(API_URL);
+
 const dataProvider = simpleRestProvider(API_URL, httpClient);
 
 export default dataProvider;
