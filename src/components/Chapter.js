@@ -12,7 +12,34 @@ import {
   ReferenceInput,
   SelectInput,
   Datagrid,
+  EditButton,
+  DeleteButton,
+  List,
+  ReferenceField,
+  SingleFieldList,
+  ChipField,
+  ShowButton,
+  CreateButton,
 } from "react-admin";
+
+export const ChapterList = (props) => (
+  <List {...props}>
+    <Datagrid rowClick="show">
+      <TextField source="id" />
+      <TextField source="name" />
+      <ReferenceField source="courseId" reference="courses">
+        <TextField label="course" source="name" />
+      </ReferenceField>
+      <ReferenceManyField label="Topics" reference="topics" target="chapterId">
+        <SingleFieldList>
+          <ChipField source="name" />
+        </SingleFieldList>
+      </ReferenceManyField>
+      <EditButton />
+      <DeleteButton />
+    </Datagrid>
+  </List>
+);
 
 export const ChapterCreate = (props) => (
   <Create {...props}>
@@ -30,8 +57,9 @@ export const ChapterEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source="id" />
       <TextInput source="name" />
-      <TextInput multiline source="description" />
-      <TextInput source="photo" />
+      <ReferenceInput source="courseId" reference="courses">
+        <SelectInput optionText="name" />
+      </ReferenceInput>
     </SimpleForm>
   </Edit>
 );
@@ -42,9 +70,13 @@ export const ChapterShow = (props) => (
       <TextField source="id" />
       <TextField source="name" />
       <ReferenceManyField label="Topics" reference="topics" target="chapterId">
-        <Datagrid rowClick="show">
+        <Datagrid>
           <TextField source="id" />
           <TextField source="name" />
+          <ShowButton />
+          <EditButton />
+          <CreateButton />
+          <DeleteButton />
         </Datagrid>
       </ReferenceManyField>
     </SimpleShowLayout>

@@ -15,6 +15,9 @@ import {
   SimpleShowLayout,
   ReferenceManyField,
   CreateButton,
+  ReferenceInput,
+  ReferenceField,
+  ShowButton,
 } from "react-admin";
 
 export const CourseList = (props) => (
@@ -58,16 +61,18 @@ export const CourseShow = (props) => (
       <TextField source="name" />
       <TextField multiline source="description" />
       <ImageField source="photo" />
-
       <ReferenceManyField
-        label="chapters"
+        label="Chapters"
         reference="chapters"
         target="courseId"
       >
-        <Datagrid rowClick="show">
+        <Datagrid>
           <TextField source="id" />
           <TextField source="name" />
+          <ShowButton />
+          <EditButton />
           <CreateButton />
+          <DeleteButton />
         </Datagrid>
       </ReferenceManyField>
     </SimpleShowLayout>
