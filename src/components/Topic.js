@@ -20,6 +20,7 @@ import {
   SelectInput,
   CreateButton,
   TopToolbar,
+  DeleteWithConfirmButton,
 } from "react-admin";
 
 const TopicActions = ({ basePath, data }) => (
@@ -30,7 +31,7 @@ const TopicActions = ({ basePath, data }) => (
 
 export const TopicList = (props) => (
   <List actions={<TopicActions />} {...props}>
-    <Datagrid rowClick="show">
+    <Datagrid>
       <TextField source="id" />
       <TextField source="name" />
       <ReferenceField source="chapterId" reference="chapters">
@@ -51,7 +52,7 @@ export const TopicList = (props) => (
         </SingleFieldList>
       </ReferenceManyField>
       <EditButton />
-      <DeleteButton />
+      <DeleteWithConfirmButton confirmContent="Are you sure? This will delete all dependencies of this entry, like exercises and theories" />
     </Datagrid>
   </List>
 );

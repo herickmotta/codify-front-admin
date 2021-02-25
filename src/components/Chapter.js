@@ -13,18 +13,18 @@ import {
   SelectInput,
   Datagrid,
   EditButton,
-  DeleteButton,
   List,
   ReferenceField,
   SingleFieldList,
   ChipField,
   ShowButton,
   CreateButton,
+  DeleteWithConfirmButton,
 } from "react-admin";
 
 export const ChapterList = (props) => (
   <List {...props}>
-    <Datagrid rowClick="show">
+    <Datagrid>
       <TextField source="id" />
       <TextField source="name" />
       <ReferenceField source="courseId" reference="courses">
@@ -35,8 +35,9 @@ export const ChapterList = (props) => (
           <ChipField source="name" />
         </SingleFieldList>
       </ReferenceManyField>
+      <ShowButton />
       <EditButton />
-      <DeleteButton />
+      <DeleteWithConfirmButton confirmContent="Are you sure? This will delete all dependencies of this entry, like topics, exercises and theories" />
     </Datagrid>
   </List>
 );
@@ -76,7 +77,7 @@ export const ChapterShow = (props) => (
           <ShowButton />
           <EditButton />
           <CreateButton />
-          <DeleteButton />
+          <DeleteWithConfirmButton confirmContent="Are you sure? This will delete all dependencies of this entry, like topics, exercises and theories" />
         </Datagrid>
       </ReferenceManyField>
     </SimpleShowLayout>

@@ -6,7 +6,6 @@ import {
   Datagrid,
   TextField,
   EditButton,
-  DeleteButton,
   SimpleForm,
   TextInput,
   Edit,
@@ -15,20 +14,20 @@ import {
   SimpleShowLayout,
   ReferenceManyField,
   CreateButton,
-  ReferenceInput,
-  ReferenceField,
   ShowButton,
+  DeleteWithConfirmButton,
 } from "react-admin";
 
 export const CourseList = (props) => (
   <List {...props}>
-    <Datagrid rowClick="show">
+    <Datagrid>
       <TextField source="id" />
       <TextField source="name" />
       <TextField multiline source="description" />
       <ImageField source="photo" />
       <EditButton />
-      <DeleteButton />
+      <ShowButton />
+      <DeleteWithConfirmButton confirmContent="Are you sure? This will delete all dependencies of this entry, like chapters, topics, exercises and theories" />
     </Datagrid>
   </List>
 );
@@ -72,7 +71,7 @@ export const CourseShow = (props) => (
           <ShowButton />
           <EditButton />
           <CreateButton />
-          <DeleteButton />
+          <DeleteWithConfirmButton confirmContent="Are you sure? This will delete all dependencies of this entry, like chapters, topics, exercises and theories" />
         </Datagrid>
       </ReferenceManyField>
     </SimpleShowLayout>

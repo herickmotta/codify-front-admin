@@ -18,7 +18,12 @@ import {
   ExerciseList,
 } from "./components/Exercise";
 import { TheoryCreate, TheoryEdit, TheoryList } from "./components/Theory";
-import { TopicShow, TopicList, TopicCreate } from "./components/Topic";
+import {
+  TopicShow,
+  TopicList,
+  TopicCreate,
+  TopicEdit,
+} from "./components/Topic";
 import authProvider from "./providers/authProvider";
 import dataProvider from "./providers/dataProvider";
 
@@ -43,6 +48,7 @@ function App() {
         name="topics"
         list={TopicList}
         show={TopicShow}
+        edit={TopicEdit}
         create={TopicCreate}
       />
       <Resource
