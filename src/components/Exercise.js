@@ -87,11 +87,11 @@ export const ExerciseEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
       <TextInput disabled source="id" />
-      <TextField source="name" />
+      <TextInput source="name" />
       <RichTextInput label="wording" source="wording" />
-      <TextField fullWidth source="example" />
-      <TextField fullWidth source="defaultCode" />
-      <TextField fullWidth source="test" />
+      <TextInput fullWidth source="example" />
+      <TextInput fullWidth source="defaultCode" />
+      <TextInput fullWidth source="test" />
     </SimpleForm>
   </Edit>
 );
