@@ -35,6 +35,7 @@ export const ExerciseList = (props) => (
       </ReferenceField>
       <TextField source="wording" />
       <TextField source="example" />
+      <TextField source="solution" />
       <TextField source="defaultCode" />
       <TextField source="test" />
       <EditButton />
@@ -54,6 +55,14 @@ export const ExerciseCreate = (props) => (
         label="Wording"
         source="wording"
         validation={{ required: true }}
+      />
+      <TextInput
+        multiline
+        fullWidth
+        source="solution"
+        initialValue={`function nomeDaFuncao(param){
+  //insira seu código aqui
+}`}
       />
       <TextInput
         multiline
@@ -90,6 +99,7 @@ export const ExerciseEdit = (props) => (
       <TextInput source="name" />
       <RichTextInput label="wording" source="wording" />
       <TextInput fullWidth source="example" />
+      <TextInput fullWidth source="solution" />
       <TextInput fullWidth source="defaultCode" />
       <TextInput fullWidth source="test" />
     </SimpleForm>
