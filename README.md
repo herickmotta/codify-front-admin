@@ -25,6 +25,15 @@ Languages:<br>
     <img src="https://img.shields.io/badge/react%20-%23323330.svg?&style=for-the-badge&logo=react&logoColor=#61DBFB"/>
 </p>
 
+### Screen Shots
+
+<p align="center">
+  <img src="public/img/login.png" width="700" alt="login" />
+</p>
+
+<p align="center">
+  <img src="public/img/home.png" width="700" alt="login" />
+</p>
 
 ### Contributors
 <a href="https://www.respondeai.com.br/">
@@ -33,15 +42,6 @@ Languages:<br>
 <sub><b>Responde Aí</b></sub>
 </a>
 
-### Screen Shots
-
-<p align="center">
-  <img src="public/img/login.png" width="500" alt="login" />
-</p>
-
-<p align="center">
-  <img src="public/img/home.png" width="500" alt="login" />
-</p>
 
 ### Authors
 ---
