@@ -36,11 +36,11 @@ Languages:<br>
 ### Screen Shots
 
 <p align="center">
-  <img src="public/img/login.png" width="175" alt="login" />
+  <img src="public/img/login.png" width="500" alt="login" />
 </p>
 
 <p align="center">
-  <img src="public/img/home.png" width="175" alt="login" />
+  <img src="public/img/home.png" width="500" alt="login" />
 </p>
 
 ### Authors
